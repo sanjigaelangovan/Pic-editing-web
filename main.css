@@ -1,0 +1,236 @@
+#imageContainer {}
+
+#toolbar {
+  display: block;
+  margin-right: 10px;
+}
+
+.bordersm {
+  border: 1px solid black;
+  height: 40px;
+  width: 80px;
+  overflow: hidden;
+  margin: 5px;
+}
+
+.borderb {
+  border: 1px solid black;
+  height: 40px;
+  width: 165px;
+  overflow: hidden;
+  margin: 5px;
+  font-size: 25px;
+  color: #4d4d4d;
+}
+
+/* On mouse-over */
+.border:hover, .border:hover {
+  color: #66a3ff;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50%
+}
+
+.left {
+  margin: 10px;
+  float: left;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.bordersm:active, .borderb:active, .bordersm:hover, .borderb:hover {
+  border: 1px solid #66a3ff;
+}
+
+.slidecontainer {
+  width: 90%;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 15px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #555555;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #555555;
+  cursor: pointer;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  padding-top: 20px;
+  float: left;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #66a3ff;
+}
+
+/* Main content */
+.main {
+  /* Same as the width of the sidenav */
+  font-size: 20px;
+  /* Increased text to enable scrolling */
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: gray;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #ffffff;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+.sidenavtext {
+  text-align: center;
+}
+
+.iconborder {
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/* Image Transformations */
+#output {
+  margin-left: 300px;
+}
+
+#imageContainer.reset #ouput {
+  transform: none;
+  -webkit-transform: none;
+  -ms-transform: none;
+}
+
+/* ROTATION */
+#imageContainer.rotateR90 #output, #imageContainer.rotateL270 #output {
+  transform: rotate(90deg) translateY(-100%);
+  -webkit-transform: rotate(90deg) translateY(-100%);
+  -ms-transform: rotate(90deg) translateY(-100%);
+  transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+}
+
+#imageContainer.rotateR180 #output, #imageContainer.rotateL180 #output {
+  transform: rotate(180deg) translate(-100%, -100%);
+  -webkit-transform: rotate(180deg) translate(-100%, -100%);
+  -ms-transform: rotate(180deg) translateX(-100%, -100%);
+  transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+}
+
+#imageContainer.rotateR270 #output, #imageContainer.rotateL90 #output {
+  transform: rotate(270deg) translateX(-100%);
+  -webkit-transform: rotate(270deg) translateX(-100%);
+  -ms-transform: rotate(270deg) translateX(-100%);
+  transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+}
+
+/* FLIP */
+#imageContainer.flip-1-1 #output {
+  transform: scale(-1, -1);
+  -webkit-transform: scale(-1, -1);
+  -ms-transform: scale(-1, -1);
+}
+
+#imageContainer.flip11 #output {
+  transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+}
+
+#imageContainer.flip-11 #output {
+  transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+}
+
+#imageContainer.flip1-1 #output {
+  transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+}

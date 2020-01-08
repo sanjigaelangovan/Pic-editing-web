@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PicEdit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<!--======================= H T M L ==============================================================-->
+
+<body>
+
+  <div class="sidenav">
+    <h1 class="sidenavtext">PicEdit</h1>
+    <div class="sidenavtext">
+      <button class="bordersm" onclick="save()"><label id="save" href="#" title="Save" class="button">
+          <img src="ICONS/save.png" width="40" class="center"></label></button>
+      <button class="bordersm" class="center"><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
+        <label for="file" title="Upload" class="button">
+          <img src="ICONS/upload.png" width="40" class="center">
+        </label></button>
+    </div>
+    <div class="sidenavtext">
+      <button class="borderb" onclick="reset()"><label id="reset" href="#" title="Reset Image" class="button">
+          RESET
+        </label></button>
+
+    </div>
+    <div class="panel-group" id="accordion">
+      <!--=========================================================-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#collapse1" href="#" title="Transform">TRANSFORM<i class="fa fa-caret-down"></i></a>
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse">
+          <div class="sidenavtext">
+            <button class="bordersm" onclick="flipH()"><label id="flipH" href="#" title="Horizontal Flip" class="button">
+                <img src="ICONS/flip.png" width="40" class="center"></label></button>
+            <button class="bordersm" onclick="rotateR()"><label id="rotateR" href="#" title="Rotate Right" class="button">
+                <img src="ICONS/rotater.png" width="40" class="center"></label></button>
+          </div>
+          <div class="sidenavtext">
+            <button class="bordersm" onclick="flipV()"><label id="flipV" href="#" title="Vertical Flip" class="button">
+                <img src="ICONS/flipv.png" width="40" class="center"></a></button>
+            <button class="bordersm" onclick="rotateL()"><label id="rotateL" href="#" title="Rotate Left" class="button">
+                <img src="ICONS/rotatel.png" width="40" class="center"></label></button>
+          </div>
+
+        </div>
+      </div>
+      <!--=========================================================-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-target="#collapse2" href="#" title="Filters">FILTERS<i class="fa fa-caret-down"></i></a>
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+
+          <!--=========================================================-->
+          <button class="dropdown-btn" title="Brightness">
+            <img src="ICONS/brightness.png" width="25">
+            Brightness
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="200" value="100" class="slider" id="brightRange">
+            </div>
+            <p class="sidenavtext"><span id="brightid"></span></p>
+          </div>
+          <!--=========================================================-->
+          <button class="dropdown-btn" title="Contrast">
+            <img src="ICONS/contrast.png" width="25">
+            Contrast
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="200" value="100" class="slider" id="contrastRange">
+            </div>
+            <p class="sidenavtext"><span id="contrastid"></span></p>
+          </div>
+          <!--=================================================================================-->
+          <button class="dropdown-btn" title="Hue">
+            <img src="ICONS/hue.png" width="25">
+            Hue
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="360" value="0" class="slider" id="hueRange">
+            </div>
+            <p class="sidenavtext"><span id="hueid"></span></p>
+          </div>
+          <!--==============================================================================-->
+          <button class="dropdown-btn" title="Saturation">
+            <img src="ICONS/saturation.png" width="25">
+            Saturation
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="100" value="100" class="slider" id="saturationRange">
+            </div>
+            <p class="sidenavtext"><span id="saturationid"></span></p>
+          </div>
+          <!--==============================================================================-->
+          <button class="dropdown-btn" title="Opacity">
+            <img src="ICONS/opacity.png" width="25">
+            Opacity
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="100" value="100" class="slider" id="opacityRange">
+            </div>
+            <p class="sidenavtext"><span id="opacityid"></span></p>
+          </div>
+          <!--==============================================================================-->
+          <button class="dropdown-btn" title="Blur">
+            <img src="ICONS/blur.png" width="25">
+            Blur
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="10" value="0" class="slider" id="blurRange">
+            </div>
+            <p class="sidenavtext"><span id="blurid"></span></p>
+          </div>
+          <!--==============================================================================-->
+          <button class="dropdown-btn" title="Grayscale">
+            <img src="ICONS/greyscale.png" width="25">
+            Grayscale
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="100" value="0" class="slider" id="grayRange">
+            </div>
+            <p class="sidenavtext"><span id="grayid"></span></p>
+          </div>
+          <!--==============================================================================-->
+          <button class="dropdown-btn" title="Sepia">
+            <img src="ICONS/sepia.png" width="25">
+            Sepia
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-container">
+            <div class="slidecontainer">
+              <input type="range" min="0" max="100" value="0" class="slider" id="sepiaRange">
+            </div>
+            <p class="sidenavtext"><span id="sepiaid"></span></p>
+          </div>
+          <!--==============================================================================-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main" id="imageContainer">
+    <p><img id="output" width="1000px"/></p>
+  </div>
+
+
+
+
+  <!--========================SCRIPT===============================================-->
+  <script type="text/javascript" src="main.js"> </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+</body>
+
+</html>
